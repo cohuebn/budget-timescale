@@ -1,0 +1,15 @@
+{
+  "include": ["**/*.ts", "**/*.js", "types/with-id.ts"],
+  "exclude": ["node_modules", "dist"],
+  "compilerOptions": {
+    "target": "es2022",
+    "lib": ["es2022"],
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "strict": true,
+    "allowJs": true,
+    "forceConsistentCasingInFileNames": true
+  }
+}

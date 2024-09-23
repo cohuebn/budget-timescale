@@ -1,0 +1,54 @@
+version: "3.7"
+
+services:
+  grafana:
+    image: grafana/grafana-oss:9.3.2
+    ports:
+      - 3000:3000
+    environment:
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+      - GF_LOG_LEVEL=debug
+      - DB_INTERNAL_HOST
+      - DB_PORT
+      - DB_NAME
+      - DB_READONLY_USER
+      - DB_READONLY_PASSWORD
+    volumes:
+      - ./grafana/provisioning/datasources/:/etc/grafana/provisioning/datasources/
+      - ./grafana/provisioning/dashboards/:/etc/grafana/provisioning/dashboards/
+      - ./grafana/config.ini:/etc/grafana/config.ini
+    networks:
+      - budget
+  budget-db:
+    image: timescale/timescaledb-ha:pg14
+    ports:
+      - "${DB_PORT}:${DB_PORT}"
+    environment:
+      - POSTGRES_USER=${DB_ADMIN_USER}
+      - POSTGRES_PASSWORD=${DB_ADMIN_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+    volumes:
+      - ./.data:/home/postgres/pgdata/data
+    networks:
+      - budget
+  budget-db-migrations:
+    depends_on:
+      - budget-db
+    build: db/
+    environment:
+      - FLYWAY_URL=jdbc:postgresql://${DB_INTERNAL_HOST}:${DB_PORT}/${DB_NAME}
+      - FLYWAY_USER=${DB_ADMIN_USER}
+      - FLYWAY_PASSWORD=${DB_ADMIN_PASSWORD}
+      - FLYWAY_PLACEHOLDERS_DBREADONLYUSER=${DB_READONLY_USER}
+      - FLYWAY_PLACEHOLDERS_DBREADONLYPASSWORD=${DB_READONLY_PASSWORD}
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+    networks:
+      - budget
+
+networks:
+  budget:

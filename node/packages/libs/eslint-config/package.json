@@ -1,0 +1,31 @@
+{
+  "name": "@budget-timescale/eslint-config",
+  "version": "1.0.0",
+  "description": "Lint rules and settings for the app",
+  "main": ".eslintrc.js",
+  "scripts": {},
+  "keywords": [
+    "budget",
+    "eslint",
+    "eslintconfig"
+  ],
+  "author": "Cory Huebner <chuebner86@gmail.com>",
+  "repository": {
+    "url": "https://github.com/cohuebn/budget-timescale"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.38.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^3.5.2",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^27.1.6",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-sonarjs": "^0.18.0",
+    "eslint-plugin-unicorn": "^45.0.1"
+  },
+  "peerDependencies": {
+    "eslint": ">= 3"
+  }
+}

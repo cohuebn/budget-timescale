@@ -1,0 +1,26 @@
+{
+  "name": "@budget-timescale/testing",
+  "version": "1.0.0",
+  "description": "Testing utilities for the different components of the budget application",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cohuebn/budget-timescale.git"
+  },
+  "author": "Cory Huebner <chuebner86@gmail.com>",
+  "main": "dist/index.js",
+  "scripts": {
+    "lint": "eslint ./",
+    "build": "tsc index.ts --outDir dist"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@faker-js/faker": "^9.0.2"
+  },
+  "devDependencies": {
+    "@budget-timescale/eslint-config": "*",
+    "@types/node": "^20.2.5",
+    "esbuild": "^0.17.19",
+    "typescript": "^5.3.3"
+  },
+  "prettier": "@budget-timescale/eslint-config/.prettierrc"
+}

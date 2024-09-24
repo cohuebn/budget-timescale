@@ -25,3 +25,13 @@ export type ParsedCsvRow = {
   checkNumber?: string;
   fees: number;
 };
+
+export type ActualSpend = {
+  accountName: string;
+  transactionNumber: string;
+  transactionDate: Date;
+  description: string;
+  memo: string;
+  amount: number;
+  fees: number;
+};

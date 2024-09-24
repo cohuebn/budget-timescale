@@ -2,19 +2,21 @@
   "name": "@budget-timescale/first-community-ingester",
   "version": "1.0.0",
   "description": "An ingester to get data from First Community Credit Union CSV files",
+  "type": "module",
   "main": "index.js",
   "repository": {
     "url": "https://github.com/cohuebn/budget-timescale"
   },
   "scripts": {
     "lint": "eslint ./",
-    "test": "jest",
-    "test:watch": "jest --watch",
+    "test": "vitest run",
+    "test:watch": "vitest --watch",
     "dev:run": "esbuild index.ts --bundle --sourcemap --outdir=dist --platform=node --target=node18 && node -r dotenv/config dist/index.js",
-    "build": "tsc index.ts --outDir dist"
+    "build": "tsc --project tsconfig.json"
   },
   "dependencies": {
     "@budget-timescale/core": "*",
+    "@budget-timescale/database": "*",
     "@dotenvx/dotenvx": "^1.7.0",
     "commander": "^12.1.0",
     "csv-parse": "^5.5.6",
@@ -29,9 +31,8 @@
     "@types/node": "^20.2.5",
     "@types/papaparse": "^5.3.14",
     "esbuild": "^0.17.19",
-    "jest": "^29.5.0",
-    "ts-jest": "^29.1.0",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "vitest": "^2.1.1"
   },
   "author": "Cory Huebner",
   "license": "ISC",

@@ -2,6 +2,7 @@
   "name": "@budget-timescale/testing",
   "version": "1.0.0",
   "description": "Testing utilities for the different components of the budget application",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cohuebn/budget-timescale.git"
@@ -10,7 +11,7 @@
   "main": "dist/index.js",
   "scripts": {
     "lint": "eslint ./",
-    "build": "tsc index.ts --outDir dist"
+    "build": "tsc --project tsconfig.json"
   },
   "license": "ISC",
   "dependencies": {

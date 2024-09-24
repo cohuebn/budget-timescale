@@ -1,3 +1,5 @@
+import { describe, it, expect } from "vitest";
+
 import { parseFile } from "./csv-file-reader";
 import { ParsedCsvRow } from "./types";
 

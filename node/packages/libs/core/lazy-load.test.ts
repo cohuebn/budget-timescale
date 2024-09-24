@@ -1,3 +1,5 @@
+import { describe, it, expect } from "vitest";
+
 import { lazyLoad } from "./lazy-load";
 
 describe("lazyLoad", () => {

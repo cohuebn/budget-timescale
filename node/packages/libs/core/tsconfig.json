@@ -1,15 +1,16 @@
 {
-  "include": ["**/*.ts", "**/*.js", "types/with-id.ts"],
+  "include": ["**/*.ts", "**/*.js"],
   "exclude": ["node_modules", "dist"],
   "compilerOptions": {
     "target": "es2022",
-    "lib": ["es2022"],
+    "lib": ["es2022", "DOM"],
     "isolatedModules": true,
     "esModuleInterop": true,
-    "moduleResolution": "Node",
+    "moduleResolution": "Bundler",
     "resolveJsonModule": true,
     "strict": true,
     "allowJs": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "dist"
   }
 }

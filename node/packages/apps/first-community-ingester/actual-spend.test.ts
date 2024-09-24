@@ -1,3 +1,5 @@
+import { describe, it, expect } from "vitest";
+
 import { randomString, randomUsdValue } from "@budget-timescale/testing";
 
 import { toActualSpend } from "./actual-spend";

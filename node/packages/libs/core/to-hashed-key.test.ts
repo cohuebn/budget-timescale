@@ -1,3 +1,5 @@
+import { describe, it, expect } from "vitest";
+
 import { toHashedKey } from "./to-hashed-key";
 
 describe("toHashedKey", () => {
